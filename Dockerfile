@@ -15,6 +15,8 @@ RUN apk --no-cache --update add ca-certificates && \
     rm -rf /var/cache/apk/* && mkdir -p /opt/adguardhome
 
 COPY --from=build /src/AdGuardHome/AdGuardHome /opt/adguardhome/AdGuardHome
+COPY --from=build /src/AdGuardHome/build/ /opt/adguardhome/build/
+# COPY --from=build /src/AdGuardHome/ /opt/adguardhome/
 
 EXPOSE 53/tcp 53/udp 67/tcp 67/udp 68/tcp 68/udp 80/tcp 443/tcp 853/tcp 853/udp 3000/tcp
 
